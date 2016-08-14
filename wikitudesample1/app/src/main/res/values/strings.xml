@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">wikitudesample1</string>
+    <string name="compass_accuracy_low">Please re-calibrate compass by waving your device in a figure 8 motion.</string>
+</resources>
