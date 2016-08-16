@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements ArchitectViewHold
             this.architectView = null;
             Toast.makeText(getApplicationContext(), "can't create Architect View", Toast.LENGTH_SHORT).show();
         }
-        //トラッキングのリスナークラス
+        //方位のトラッキングのリスナークラス。wikitudeのクラス。
         this.sensorAccuracyListener = this.getSensorAccuracyListener();
         //位置情報のリスナー
         this.locationListener = new LocationListener() {
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements ArchitectViewHold
                     if ( MainActivity.this.architectView != null ) {
                         // check if location has altitude at certain accuracy level & call right architect method (the one with altitude information)
                         //誤差が7m未満の時.hasAltitudeは標高。
-                        //一助違法をARのビューの位置情報に設定
+                        //位置情報をARのビューの位置情報に設定。これでJavaScriptで設定した。AR.context.onLocationChangedの関数が動く。
                         if ( location.hasAltitude() && location.hasAccuracy() && location.getAccuracy()<7) {
                             MainActivity.this.architectView.setLocation( location.getLatitude(), location.getLongitude(), location.getAltitude(), location.getAccuracy() );
                         } else {
